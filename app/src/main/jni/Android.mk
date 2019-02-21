@@ -8,10 +8,10 @@ LOCAL_LDLIBS :=-llog
 
 
 
-LOCAL_MODULE    := testlog
+LOCAL_MODULE    := StartJar
 
-LOCAL_SRC_FILES := Testlog.cpp
+LOCAL_SRC_FILES := StartJar.c
 
 
 
-include $(BUILD_SHARED_LIBRARY)
+include $(BUILD_EXECUTABLE)
