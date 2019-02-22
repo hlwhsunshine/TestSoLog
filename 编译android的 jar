@@ -1,0 +1,1 @@
+在android sdk 目录里使用dx --dex --output=目标.jar 源.jar

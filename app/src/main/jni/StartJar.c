@@ -14,6 +14,22 @@
 
 jobject getGlobalContext(JNIEnv *env);
 
+
+
+jint create_VM(JavaVM **jvm, JNIEnv** env) {
+    JavaVMInitArgs args;
+    JavaVMOption options[1];
+
+    args.version = JNI_VERSION_1_6;  //	java版本
+    args.nOptions = 1;
+    options[0].optionString = "-Djava.class.path=./";  	// 配置java类的目录为当前目录
+    args.options = options;
+    args.ignoreUnrecognized = JNI_FALSE;
+
+    return JNI_CreateJavaVM(jvm, (void **)env, &args);  // 创建java虚拟机
+}
+
+
 int main()
 {
         int res;
@@ -33,7 +49,8 @@ int main()
         vm_args.nOptions = 3;
         vm_args.options = options;
         vm_args.ignoreUnrecognized = JNI_TRUE;
-        jint retint = env->GetJavaVM(&jvm);
+
+        jint ret = create_VM(&jvm, &env);
         //res = JNI_CreateJavaVM(&jvm, (void**)&env, &vm_args);
         if (res < 0 || jvm == NULL || env == NULL) {
                 LOGD("Can't create Java VM\n");

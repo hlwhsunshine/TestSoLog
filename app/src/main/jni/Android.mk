@@ -8,9 +8,9 @@ LOCAL_LDLIBS :=-llog
 
 
 
-LOCAL_MODULE    := StartJar
+LOCAL_MODULE    := jartest
 
-LOCAL_SRC_FILES := StartJar.c
+LOCAL_SRC_FILES := StartJar.cpp
 
 
 
